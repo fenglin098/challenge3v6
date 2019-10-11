@@ -12,16 +12,18 @@
     <div class="jumbotron" style="background-image: url(https://res.cloudinary.com/dw2hl1oiq/image/upload/v1570820643/yemvhkxris1tv31vztr6.jpg); background-size: 100%;">
         <p class="h2">Message Form</p><br/>
         <form action="#" th:action="@{/process}" th:object="${message}" method="post" enctype="multipart/form-data">
-            <input type="hidden" th:field="*{id}" />
-            Content :<input type="text" th:field="*{content}" />
-            <span th:if="${#fields.hasErrors('content')}"
-                  th:errors="*{content}"></span><br />
-            Posted Date :<input type="text" th:field="*{posteddate}" />
-            <span th:if="${#fields.hasErrors('posteddate')}"
-                  th:errors="*{posteddate}"></span><br />
-            Sent By :<input type="text" th:field="*{sentby}" />
-            <span th:if="${#fields.hasErrors('sentby')}"
-                  th:errors="*{sentby}"></span><br /><br />
+            <div class="form-group">
+                <label for="formGroupExampleInput">Content</label>
+                <input type="text" th:field="*{content}" class="form-control" id="formGroupExampleInput" placeholder="Enter your message here">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Posted Date</label>
+                <input type="text" th:field="*{posteddate}" class="form-control" id="formGroupExampleInput2" placeholder="Date">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Sent By</label>
+                <input type="text" th:field="*{sentby}" class="form-control" id="formGroupExampleInput2" placeholder="Your name">
+            </div>
             <input type="file" name="file" /><br /><br />
             <input class="btn btn-info" type="submit" value="Submit">
         </form>
